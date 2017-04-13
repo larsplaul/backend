@@ -53,7 +53,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
    
     @Test
    public void deleteBooksWithAuthentication(){
-     securityToken = login("User","test");
+     securityToken = login("user","test");
      
      //Get id of first book
      int idFirstBook = get("/api/book").path("[0].id");
@@ -73,7 +73,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
    
    @Test
    public void deleteNonExistingBooksWithAuthentication(){
-     securityToken = login("User","test");
+     securityToken = login("user","test");
      //Delete and verify we get the correct response (204, no content)     
      given()
             .contentType("application/json")
@@ -106,7 +106,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
    
    @Test
    public void addBookWithAuthentication(){
-     securityToken = login("User","test");
+     securityToken = login("user","test");
      Book book = new Book("xx","yy","zz");
     
      //Delete and verify we get the correct response (204, no content)     
@@ -137,7 +137,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
    
    @Test
    public void editBookWithAuthentication(){
-     securityToken = login("User","test");
+     securityToken = login("user","test");
      
      //Get id of first book
      int idFirstBook = get("/api/book").path("[0].id");

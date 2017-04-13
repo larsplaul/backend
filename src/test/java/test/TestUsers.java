@@ -21,7 +21,7 @@ public class TestUsers {
   public static void main(String[] args) {
     EntityManager em = Persistence.createEntityManagerFactory(PU.getName()).createEntityManager();
     try {
-      System.out.println("Creating TEST Users");
+      System.out.println("Creating TEST Users using PU: "+PU.getName());
 
       //if (em.find(User.class, "user") == null) {
       em.getTransaction().begin();
@@ -45,6 +45,7 @@ public class TestUsers {
       em.persist(both);
       em.getTransaction().commit();
       System.out.println("Created TEST Users");
+      System.out.println("User: "+user.getUserName()+", "+user.getPassword());
       //}
     } catch (Exception ex) {
       Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
