@@ -30,8 +30,8 @@ public class EmbeddedTomcat {
     tomcat.setPort(port);
 
     Context context = tomcat.addWebapp(appContext, new File(webAppLocation).getAbsolutePath());
-    context.addParameter("pu_name", "pu_test");   
-    //context.addParameter("pu_name", "pu_test_embedded");   
+    //context.addParameter("pu_name", "pu_test");   
+    context.addParameter("pu_name", "pu_test_embedded");   
     //((StandardJarScanner) context.getJarScanner()).setScanAllDirectories(true);
 
     // Add servlet that will register Jersey REST resources
