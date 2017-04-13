@@ -165,7 +165,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
      
      //fetch the book
      Book book = get("/api/book/"+idFirstBook).as(Book.class);
-     book.setTitle("changed");
+     book.setTitle("changedxx");
      
      given().body(book)
             .contentType("application/json")
