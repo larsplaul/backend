@@ -77,7 +77,7 @@ public class BookFacade {
       em.getTransaction().begin();
       em.merge(orgBook);
       em.getTransaction().commit();
-      return b;
+      return orgBook;
     }finally{
       em.close();
     }

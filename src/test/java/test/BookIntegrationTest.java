@@ -7,6 +7,7 @@ import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import javax.validation.constraints.AssertTrue;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -146,14 +147,15 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
      Book book = get("/api/book/"+idFirstBook).as(Book.class);
      book.setTitle("changed");
      
-     given().body(book)
+     String res = given().body(book)
             .contentType("application/json")
             .header("Authorization", "Bearer " + securityToken)
             .when()
             .put("/api/book/")
-            .then().statusCode(200)
+            .then()//.statusCode(200)
             //.body("title", is("changed")); //This doed not work ?????? (it works above for POST)
-            .extract().path("title").equals("changed");           
+            .extract().path("title");           
+      assertEquals(res,"changedXX");
       verifySize(2);
       logOut();
    }
@@ -165,7 +167,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
      
      //fetch the book
      Book book = get("/api/book/"+idFirstBook).as(Book.class);
-     book.setTitle("changedxx");
+     book.setTitle("changed");
      
      given().body(book)
             .contentType("application/json")
