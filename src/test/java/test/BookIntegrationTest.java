@@ -155,7 +155,7 @@ public class BookIntegrationTest extends BaseForRestIntegrationTest {
             .then()//.statusCode(200)
             //.body("title", is("changed")); //This doed not work ?????? (it works above for POST)
             .extract().path("title");           
-      assertEquals(res,"changedXX");
+      assertEquals(res,"changed");
       verifySize(2);
       logOut();
    }
